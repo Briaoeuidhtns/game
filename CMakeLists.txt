@@ -8,16 +8,25 @@ conan_basic_setup(TARGETS)
 
 set(SRC src)
 
+add_library(s7 ${SRC}/s7/s7.c)
+
+target_link_libraries(s7 ${CMAKE_DL_LIBS})
+
 add_executable(${PROJECT_NAME}
   ${SRC}/entry_point.cpp
-  ${SRC}/s7/s7.c
   )
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+  -Wall
+  -Wextra
+  -pedantic
+  -Werror)
 
 target_link_libraries(${PROJECT_NAME}
   CONAN_PKG::sfml
   CONAN_PKG::bullet3
   CONAN_PKG::entt
-  ${CMAKE_DL_LIBS})
+  s7)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
   ${SRC})
