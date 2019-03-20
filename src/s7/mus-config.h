@@ -1,0 +1,7 @@
+#ifndef CONFIG_H_LOADED
+#define CONFIG_H_LOADED
+
+#define HAVE_COMPLEX_NUMBERS 0
+#define HAVE_COMPLEX_TRIG 0
+
+#endif

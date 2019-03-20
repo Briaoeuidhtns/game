@@ -1,0 +1,14 @@
+[requires]
+entt/3.x.y-WIP@skypjack/stable
+bullet3/2.88@bincrafters/stable
+sfml/2.5.1@bincrafters/stable
+Catch2/2.7.0@catchorg/stable
+
+[options]
+sfml:graphics=True
+sfml:window=True
+sfml:audio=True
+sfml:network=False
+
+[generators]
+cmake
