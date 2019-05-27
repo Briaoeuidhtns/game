@@ -1,10 +1,25 @@
 #include <functional>
 #include <memory>
-extern "C" {
-#include "s7/s7.hpp"
-}
 #include "c_util.hpp"
+#include "iostream"
 
-int main(int, char**) {
-  std::unique_ptr<s7_scheme, free_deleter> scheme(s7_init());
+#include <SFML/Graphics.hpp>
+
+int _main(int, char**) {
+  sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+  sf::CircleShape shape(100.f);
+  shape.setFillColor(sf::Color::Green);
+
+  while (window.isOpen()) {
+    sf::Event event;
+    while (window.pollEvent(event)) {
+      if (event.type == sf::Event::Closed) window.close();
+    }
+
+    window.clear();
+    window.draw(shape);
+    window.display();
+  }
+
+  return 0;
 }
